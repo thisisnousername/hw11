@@ -37,8 +37,6 @@ int main(){
 
 	writeToFile(psi0,"psi_0", dx,Nx,xmin, alpha, lambda, omega,t);
 
-
-
 	for (int i = 1; i <= Na; i++) {
 		for (int j = 1; j <= Nk-1; j++) {
 			step(psi0,dt,dx,omega,Nx,xmin);
@@ -66,7 +64,7 @@ void step(cmplx* const v, const double dt, const double dx, const double omega, 
   const double k=omega*omega;
   double x=xmin;
 
-  for(int i=0;i<N-1;i++){
+  for(int i=0;i<N;i++){
 	d1[i] = cmplx(1.0,-(dt/(2.0*dx*dx)+dt*k*x*x/4.0));
 	d[i]  = cmplx(1.0, (dt/(2.0*dx*dx)+dt*k*x*x/4.0));
 	x+=dx;
